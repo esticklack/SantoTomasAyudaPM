@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Santo Tomas Ayuda PM</string>
+    <string name="todo">TODO</string>
+    <string name="button">Button</string>
+    <string name="iniciar_sesion">iniciar sesion</string>
+    <string name="correo">correo</string>
+    <string name="ingresar_correo">ingresar correo</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="correoInicio">Correo</string>
+</resources>

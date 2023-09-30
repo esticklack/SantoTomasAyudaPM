@@ -15,6 +15,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+      
         btnBuscarAula = findViewById(R.id.btnBuscarAula);
 
         btnBuscarAula.setOnClickListener(view -> {
@@ -31,6 +32,7 @@ public class HomeActivity extends AppCompatActivity {
     public void irAgendarSala(){
         Intent I = new Intent(HomeActivity.this, AuthActivity.class);
         startActivity(I);
+
 
     }
 }

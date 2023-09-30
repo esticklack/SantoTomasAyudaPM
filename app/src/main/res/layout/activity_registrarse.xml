@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrarseActivity"
+    tools:layout_editor_absoluteY="25dp">
+
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/layout_pantallas_inicio"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-64dp" />
+
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="257dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="112dp"
+        android:backgroundTint="#1E5C4F"
+        android:text="Registrarse"
+        android:textSize="29sp"
+        android:translationZ="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="163dp"
+        android:layout_height="61dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/rdborderbutton"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/nombre"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include"
+        app:layout_constraintVertical_bias="0.467" />
+
+    <EditText
+        android:id="@+id/etApellido"
+        android:layout_width="163dp"
+        android:layout_height="61dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/rdborderbutton"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/apellido"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.862"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include"
+        app:layout_constraintVertical_bias="0.466" />
+
+    <EditText
+        android:id="@+id/etCorreoRegistro"
+        android:layout_width="343dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="136dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/rdborderbutton"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/correo"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
+        app:layout_constraintEnd_toEndOf="@+id/etApellido"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etNombre"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/etPasswordRegistro"
+        android:layout_width="343dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="32dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/rdborderbutton"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

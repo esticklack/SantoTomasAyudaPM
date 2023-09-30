@@ -5,21 +5,9 @@
     xmlns:tools2="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/logoInicioSesionBase"
-        android:layout_width="374dp"
-        android:layout_height="267dp"
-        android:contentDescription="@string/todo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.179"
-        app:srcCompat="@drawable/logo" />
+    <include layout="@layout/layout_pantallas_inicio" />
 
     <Button
         android:id="@+id/boton_inicio_sesion_base"
@@ -31,8 +19,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoInicioSesionBase"
-        app:layout_constraintVertical_bias="0.706" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.873" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

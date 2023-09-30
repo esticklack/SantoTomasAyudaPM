@@ -4,16 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:background="@drawable/fondo"
+    >
 
     <TextView
-        android:id="@+id/LoginExitoso"
-        android:layout_width="293dp"
-        android:layout_height="69dp"
-        android:text="Login Exitoso"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/BienvenidaNombreApellido"
+        android:layout_width="372dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="144dp"
+        android:background="@drawable/rdborderbutton"
+        android:gravity="center"
+        android:text="Bienvenido @Usuario"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.152" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="232dp"
+        android:layout_height="91dp"
+        app:layout_constraintBottom_toTopOf="@+id/BienvenidaNombreApellido"
+        app:layout_constraintEnd_toEndOf="@+id/BienvenidaNombreApellido"
+        app:layout_constraintStart_toStartOf="@+id/BienvenidaNombreApellido"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:text="Seleccione una opcion"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAgendarSala"
+        android:layout_width="264dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="304dp"
+        android:text="Agendar sala de estudio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnBuscarAula"
+        android:layout_width="264dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="204dp"
+        android:text="Buscar aula"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="46dp"
+        android:layout_height="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/conf" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

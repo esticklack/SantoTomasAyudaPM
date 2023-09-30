@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "842041229275",
+    "project_id": "stayudapm",
+    "storage_bucket": "stayudapm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842041229275:android:82d5ed8a13a2dbee97b1fe",
+        "android_client_info": {
+          "package_name": "gi.stomasayuda.pm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842041229275-1t65opc9lr1mk4blukgnqld06noncb98.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbrQLzDS6zJxzRkSnrLSsAkE1G4TaJTp8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842041229275-1t65opc9lr1mk4blukgnqld06noncb98.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

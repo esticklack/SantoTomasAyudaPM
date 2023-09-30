@@ -5,6 +5,9 @@
     <string name="iniciar_sesion">iniciar sesion</string>
     <string name="correo">correo</string>
     <string name="ingresar_correo">ingresar correo</string>
-    <string name="contrase_a">Contraseña</string>
+    <string name="password">Contraseña</string>
     <string name="correoInicio">Correo</string>
+    <string name="apellido">Apellido</string>
+    <string name="nombre">Nombre</string>
+
 </resources>

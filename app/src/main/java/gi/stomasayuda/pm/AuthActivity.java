@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,7 +28,7 @@ public class AuthActivity extends AppCompatActivity {
 
     Button btnIniciarSesion;
 
-
+    TextView btnRegistrarse;
 
 
     @Override
@@ -62,12 +63,19 @@ public class AuthActivity extends AppCompatActivity {
 
             mAuth.signInWithEmailAndPassword(correo, password).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
+
                     irAInterfaz();
                 } else {
 
                 }
             });
 
+        });
+
+        btnRegistrarse = findViewById(R.id.RegistrarseButton);
+        btnRegistrarse.setOnClickListener(view -> {
+            Intent registrarse = new Intent(AuthActivity.this, RegistrarseActivity.class);
+            startActivity(registrarse);
         });
 
 

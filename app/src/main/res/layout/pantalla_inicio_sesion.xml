@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/layout_pantallas_inicio" />
+    <include layout="@layout/interfaz_base" />
 
     <View
         android:id="@+id/view"

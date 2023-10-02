@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/layout_pantallas_inicio"
+        layout="@layout/interfaz_base"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-64dp" />
 

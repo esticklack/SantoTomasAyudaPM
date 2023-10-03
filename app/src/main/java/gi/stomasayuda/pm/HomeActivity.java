@@ -31,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+      
         btnBuscarAula = findViewById(R.id.btnBuscarAula);
         btnAgendarSala = findViewById(R.id.btnAgendarSala);
 
@@ -76,6 +77,7 @@ public class HomeActivity extends AppCompatActivity {
     public void irAgendarSala(){
         Intent I = new Intent(HomeActivity.this, AgendarSalaEstudio.class);
         startActivity(I);
+
 
     }
 

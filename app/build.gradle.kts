@@ -34,7 +34,7 @@ android {
 
 dependencies {
 
-
+    implementation("com.google.firebase:firebase-firestore")
     implementation ("com.basgeekball:awesome-validation:4.3")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-analytics")

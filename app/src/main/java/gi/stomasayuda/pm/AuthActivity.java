@@ -4,20 +4,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import android.util.Log;
-import android.view.View;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class AuthActivity extends AppCompatActivity {
 
@@ -27,8 +23,9 @@ public class AuthActivity extends AppCompatActivity {
 
     Button btnIniciarSesion;
 
+    TextView btnRegistrarse;
 
-
+    int intentos = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,14 +57,31 @@ public class AuthActivity extends AppCompatActivity {
             String correo = EditTextCorreo.getText().toString();
             String password = EditTextPassword.getText().toString();
 
+
             mAuth.signInWithEmailAndPassword(correo, password).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     irAInterfaz();
                 } else {
-
+                    intentos++;
+                    if (intentos >= 5) {
+                        btnIniciarSesion.setEnabled(false);
+                        Toast.makeText(getApplicationContext(), "Ha excedido el número máximo de intentos", Toast.LENGTH_SHORT).show();
+                        Handler handler = new Handler();
+                        handler.postDelayed(() -> {
+                            btnIniciarSesion.setEnabled(true);
+                            intentos = 0;
+                        }, 5000); // Estos serian en milisegundos
+                    } else
+                        Toast.makeText(getApplicationContext(), "Email o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                 }
             });
 
+        });
+
+        btnRegistrarse = findViewById(R.id.RegistrarseButton);
+        btnRegistrarse.setOnClickListener(view -> {
+            Intent registrarse = new Intent(AuthActivity.this, RegistrarseActivity.class);
+            startActivity(registrarse);
         });
 
 

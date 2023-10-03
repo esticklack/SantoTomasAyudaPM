@@ -7,7 +7,9 @@
     <string name="ingresar_correo">ingresar correo</string>
     <string name="password">Contraseña</string>
     <string name="correoInicio">Correo</string>
+
     <string name="apellido">Apellido</string>
     <string name="nombre">Nombre</string>
+
 
 </resources>

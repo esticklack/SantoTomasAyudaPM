@@ -16,11 +16,6 @@
             android:name=".AgendarSalaEstudio"
             android:exported="false" />
         <activity
-            android:name=".BuscarAula"
-            android:exported="false"
-            android:label="@string/title_activity_buscar_aula"
-            android:theme="@style/Theme.SantoTomasAyudaPM" />
-        <activity
             android:name=".SeleccionEdificio"
             android:exported="false" />
         <activity

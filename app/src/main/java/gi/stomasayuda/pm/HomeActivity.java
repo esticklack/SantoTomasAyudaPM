@@ -6,26 +6,33 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+
+import android.widget.ImageButton;
+import android.widget.ImageView;
+
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+
 public class HomeActivity extends AppCompatActivity {
 
     Button btnBuscarAula;
     Button btnAgendarSala;
+    ImageView btnConfiguration;
 
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,10 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         btnBuscarAula = findViewById(R.id.btnBuscarAula);
+        btnAgendarSala = findViewById(R.id.btnAgendarSala);
+        btnConfiguration = findViewById(R.id.imgConfiguration);
+
+        btnConfiguration.setOnClickListener(view -> irAConfiguracion());
         btnAgendarSala = findViewById(R.id.btnAgendarSala);
 
         btnBuscarAula.setOnClickListener(view -> irABuscarAula());
@@ -66,7 +77,8 @@ public class HomeActivity extends AppCompatActivity {
 
                             }
                         } else {
-                            Log.d("TAG", "Error getting documents: ", task.getException());
+
+                            Log.d("TAG", "Error obteniendo el documento.: ", task.getException());
                         }
                     });
         }
@@ -80,10 +92,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void irAgendarSala(){
-        Intent I = new Intent(HomeActivity.this, AgendarSalaEstudio.class);
+        Intent I = new Intent(HomeActivity.this, SalasDeEstudiosActivity.class);
         startActivity(I);
-
-
     }
 
     public void onBackPressed() {
@@ -91,5 +101,14 @@ public class HomeActivity extends AppCompatActivity {
         System.exit(0);
     }
 
+    public void irAConfiguracion(){
+        Intent I = new Intent(HomeActivity.this, ConfigActivity.class);
+        startActivity(I);
+    }
+
+    public void onBackPressed() {
+        finish();
+        System.exit(0);
+    }
 
 }

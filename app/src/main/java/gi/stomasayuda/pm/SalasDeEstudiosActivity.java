@@ -10,12 +10,16 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
+import java.util.Calendar;
+
 public class SalasDeEstudiosActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     FirebaseFirestore db;
-
     TextView txtPrueba;
+
+    Calendar obtenerHora = Calendar.getInstance();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,30 +27,15 @@ public class SalasDeEstudiosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_salas_de_estudios);
 
         mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (user != null) {
-            String correoUsuario = user.getEmail();
+        int hora = obtenerHora.get(Calendar.HOUR_OF_DAY);
+        int minuto = obtenerHora.get(Calendar.MINUTE);
+        String horaFormateada = String.format("%02d", hora);
+        String minutoFormateado = String.format("%02d", minuto);
 
-            db.collection("usuarios")
-                    .whereEqualTo("correo", correoUsuario)
-                    .get()
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                String nombreUsuario = document.getString("nombre");
-                                txtPrueba = findViewById(R.id.txtPrueba);
-                                txtPrueba.setText("Hola" + nombreUsuario);
-                            }
+        txtPrueba = findViewById(R.id.txtPrueba2);
+        txtPrueba.setText("Hora Actual: " + horaFormateada + ":" + minutoFormateado);
 
-                        } else {
-
-                        }
-                    });
-
-
-
-        }
 
 
     }

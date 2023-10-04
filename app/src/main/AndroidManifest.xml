@@ -13,20 +13,26 @@
         android:theme="@style/Theme.SantoTomasAyudaPM"
         tools:targetApi="31">
         <activity
-
+            android:name=".SalasDeEstudiosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfigActivity"
+            android:exported="false" />
+        <activity
             android:name=".AgendarSalaEstudio"
             android:exported="false" />
         <activity
             android:name=".SeleccionEdificio"
-
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
+            android:name=".SalasDeEstudiosActivity"
+            android:exported="false" />
+        <activity
             android:name=".AuthActivity"
             android:exported="false" />
-
         <activity
             android:name=".RegistrarseActivity"
             android:exported="false" />

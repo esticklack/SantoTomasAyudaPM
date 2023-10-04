@@ -33,7 +33,8 @@
         app:layout_constraintStart_toStartOf="@+id/BienvenidaNombreApellido"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.71"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/textView"
@@ -70,13 +71,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgConfiguration"
         android:layout_width="46dp"
         android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:contentDescription="imgConfiguración"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/conf" />
+        app:srcCompat="@drawable/conf"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,4 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bluelink">#0E7793</color>
+<<<<<<< Updated upstream
+=======
+    <color name="green">#0DD307</color>
+    <color name="verdeOscuro">#024700</color>
+>>>>>>> Stashed changes
 </resources>

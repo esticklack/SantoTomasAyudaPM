@@ -26,6 +26,10 @@
         <activity
             android:name=".AuthActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".RegistrarseActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

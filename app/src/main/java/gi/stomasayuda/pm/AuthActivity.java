@@ -38,6 +38,7 @@ public class AuthActivity extends AppCompatActivity {
         EditTextCorreo.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
                 EditTextCorreo.setHintTextColor(Color.TRANSPARENT);
+                EditTextCorreo.setTextColor(Color.BLACK);
             } else {
                 EditTextCorreo.setHintTextColor(Color.BLACK);
             }
@@ -47,6 +48,7 @@ public class AuthActivity extends AppCompatActivity {
         EditTextPassword.setOnFocusChangeListener((v, hasFocus) ->{
            if (hasFocus) {
                EditTextPassword.setHintTextColor(Color.TRANSPARENT);
+               EditTextPassword.setTextColor(Color.BLACK);
            } else {
                EditTextPassword.setHintTextColor(Color.BLACK);
            }

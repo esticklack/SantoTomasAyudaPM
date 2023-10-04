@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -19,11 +22,9 @@ public class HomeActivity extends AppCompatActivity {
     Button btnBuscarAula;
     Button btnAgendarSala;
 
-    private TextView mensaje;
-
-    String correo = getIntent().getStringExtra("correo");
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
     @Override
@@ -31,40 +32,44 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-      
         btnBuscarAula = findViewById(R.id.btnBuscarAula);
         btnAgendarSala = findViewById(R.id.btnAgendarSala);
 
-        btnBuscarAula.setOnClickListener(view -> {
-            irABuscarAula();
-        });
+        btnBuscarAula.setOnClickListener(view -> irABuscarAula());
 
-        btnAgendarSala.setOnClickListener(view -> {
-            irAgendarSala();
-        });
-
-        //mensaje = findViewById(R.id.BienvenidaNombreApellido);
-        mensaje = (TextView) findViewById(R.id.BienvenidaNombreApellido);
+        btnAgendarSala.setOnClickListener(view -> irAgendarSala());
 
 
 
 
-        db.collection("usuarios")
-                .whereEqualTo("correo", correo)
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            String nombre = document.getString("nombre");
-                            mensaje.setText("Bienvenido, " + nombre);
+        if (user != null) {
+            String email = user.getEmail();
+
+            db.collection("usuarios")
+                    .whereEqualTo("correo", email)
+                    .get()
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                String nombre = document.getString("nombre");
+                                TextView textViewNombre = findViewById(R.id.BienvenidaNombreApellido);
+
+
+                                if (nombre.toLowerCase().endsWith("o")) {
+                                    textViewNombre.setText("Bienvenido "+ nombre);
+                                } else if (nombre.toLowerCase().endsWith("a")) {
+                                    textViewNombre.setText("Bienvenida "+ nombre);
+                                } else {
+                                    // Por defecto, si no termina en "o" ni en "a", simplemente decimos "Bienvenido/a" seguido del nombre.
+                                    textViewNombre.setText("Bienvenido/a "+ nombre);
+                                }
+
+                            }
+                        } else {
+                            Log.d("TAG", "Error getting documents: ", task.getException());
                         }
-                    } else {
-                        // Manejo de errores en caso de que la consulta falle
-                        mensaje.setText("Error al obtener datos: " + task.getException().getMessage());
-                    }
-                });
-
-
+                    });
+        }
 
     }
 
@@ -79,6 +84,11 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(I);
 
 
+    }
+
+    public void onBackPressed() {
+        finish();
+        System.exit(0);
     }
 
 

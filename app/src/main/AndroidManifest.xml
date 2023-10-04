@@ -13,12 +13,9 @@
         android:theme="@style/Theme.SantoTomasAyudaPM"
         tools:targetApi="31">
         <activity
-<<<<<<< Updated upstream
             android:name=".SalasDeEstudiosActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrarseActivity"
-=======
             android:name=".ConfigActivity"
             android:exported="false" />
         <activity
@@ -26,7 +23,6 @@
             android:exported="false" />
         <activity
             android:name=".SeleccionEdificio"
->>>>>>> Stashed changes
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
@@ -37,12 +33,9 @@
         <activity
             android:name=".AuthActivity"
             android:exported="false" />
-<<<<<<< Updated upstream
-=======
         <activity
             android:name=".RegistrarseActivity"
             android:exported="false" />
->>>>>>> Stashed changes
         <activity
             android:name=".MainActivity"
             android:exported="true">

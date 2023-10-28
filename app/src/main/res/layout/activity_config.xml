@@ -6,29 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".ConfigActivity">
 
+
+    <include
+        android:id="@+id/include4"
+        layout="@layout/interfaz_principal"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-58dp" />
+
+
     <TextView
         android:id="@+id/txtAdmin"
-        android:layout_width="274dp"
-        android:layout_height="57dp"
-        android:text="Usted es:"
+        android:layout_width="169dp"
+        android:layout_height="34dp"
         android:gravity="center"
-        android:textSize="25sp"
+        android:text="Usted es:"
+        android:textColor="@color/white"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.898" />
 
     <Button
         android:id="@+id/btnLogout"
-        android:layout_width="206dp"
-        android:layout_height="62dp"
+        android:layout_width="208dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/verdeOscuro"
         android:text="Cerrar sesión"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.798" />
+        app:layout_constraintVertical_bias="0.839" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Personales"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtAdmin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include4"
+        app:layout_constraintVertical_bias="0.323" />
+
+    <Button
+        android:id="@+id/btnAdministrarSalas"
+        android:layout_width="259dp"
+        android:layout_height="53dp"
+        android:backgroundTint="@color/verdeOscuro"
+        android:text="Administrar salas"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/include4"
+        app:layout_constraintStart_toStartOf="@+id/include4"
+        app:layout_constraintTop_toTopOf="@+id/include4"
+        app:layout_constraintVertical_bias="0.766" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

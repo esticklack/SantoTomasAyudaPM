@@ -12,18 +12,6 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-61dp" />
 
-    <ImageView
-        android:id="@+id/imgReference1"
-        android:layout_width="253dp"
-        android:layout_height="107dp"
-        android:layout_marginTop="344dp"
-        android:contentDescription="Imagen de referencia 1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include2"
-        app:srcCompat="@drawable/foto_prueba"
-        tools:ignore="HardcodedText" />
-
     <TextView
         android:id="@+id/txtPrueba"
         android:layout_width="wrap_content"
@@ -31,28 +19,41 @@
         android:text="SALAS DE ESTUDIO DISPONIBLES"
         android:textColor="@color/white"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/imgReference1"
+        app:layout_constraintBottom_toTopOf="@+id/txtPrueba2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/include2"
-        app:layout_constraintVertical_bias="0.631"
+        app:layout_constraintVertical_bias="0.953"
         tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/txtPrueba2"
         android:layout_width="199dp"
         android:layout_height="35dp"
+        android:layout_marginTop="228dp"
         android:background="@drawable/rdborder"
         android:gravity="center"
         android:text="SALAS DE ESTUDIO"
         android:textColor="@color/verdeOscuro"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/imgReference1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/include2"
-        app:layout_constraintVertical_bias="0.776"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="HardcodedText,TextSizeCheck" />
+
+    <ListView
+        android:id="@+id/ListaSalas"
+        android:layout_width="349dp"
+        android:layout_height="172dp"
+        android:background="@drawable/rdborder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrueba2"
+        app:layout_constraintVertical_bias="0.176" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

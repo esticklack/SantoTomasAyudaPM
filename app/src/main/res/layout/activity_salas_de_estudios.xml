@@ -14,11 +14,12 @@
 
     <TextView
         android:id="@+id/txtPrueba"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="313dp"
+        android:layout_height="65dp"
         android:text="SALAS DE ESTUDIO DISPONIBLES"
         android:textColor="@color/white"
         android:textSize="25sp"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/txtPrueba2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
@@ -41,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/include2"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.181"
         tools:ignore="HardcodedText,TextSizeCheck" />
 
     <ListView

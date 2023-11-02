@@ -22,6 +22,7 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
         app:layout_constraintVertical_bias="0.152" />
 
     <ImageView
@@ -38,10 +39,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
+        android:layout_width="212dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="320dp"
+        android:background="@drawable/rdborderbutton"
+        android:gravity="center"
         android:text="Seleccione una opcion"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -55,6 +59,7 @@
         android:layout_marginBottom="304dp"
         android:textSize="25sp"
         android:text="Agendar sala"
+        android:textColor="@color/white"
         android:backgroundTint="@color/verdeOscuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,6 +73,7 @@
         android:layout_marginBottom="204dp"
         android:textSize="25sp"
         android:text="Buscar aula"
+        android:textColor="@color/white"
         android:backgroundTint="@color/verdeOscuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -30,10 +30,11 @@
 
     <Button
         android:id="@+id/btnLogout"
-        android:layout_width="208dp"
-        android:layout_height="50dp"
+        android:layout_width="259dp"
+        android:layout_height="53dp"
         android:backgroundTint="@color/verdeOscuro"
         android:text="Cerrar sesión"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +55,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/include4"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintVertical_bias="0.298" />
 
     <Button
         android:id="@+id/btnAdministrarSalas"
@@ -62,6 +63,7 @@
         android:layout_height="53dp"
         android:backgroundTint="@color/verdeOscuro"
         android:text="Administrar salas"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"

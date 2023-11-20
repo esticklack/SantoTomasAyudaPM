@@ -14,6 +14,19 @@
         tools:layout_editor_absoluteY="-58dp" />
 
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="122dp"
+        android:layout_height="122dp"
+        android:src="@drawable/foto_perfil"
+        app:layout_constraintBottom_toTopOf="@+id/btnAdministrarSalas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.091"
+        tools:ignore="ImageContrastCheck" />
+
     <TextView
         android:id="@+id/txtAdmin"
         android:layout_width="169dp"

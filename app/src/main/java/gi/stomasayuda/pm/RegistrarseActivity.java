@@ -56,12 +56,18 @@ public class RegistrarseActivity extends AppCompatActivity {
                             usuario.put("nombre", nombre);
                             usuario.put("apellido", apellido);
                             usuario.put("correo", correo);
-                            usuario.put("reservas", "");
+                            usuario.put("admin", false);
+                            usuario.put("foto", "");
+                            usuario.put("numero", "");
+
+
+                            String uid = mAuth.getUid();
 
                             db.collection("usuarios")
-                                    .add(usuario)
-                                    .addOnSuccessListener(documentReference -> Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId()))
-                                    .addOnFailureListener(e -> Log.w("TAG", "Error adding document", e));
+                                    .document(uid)
+                                    .set(usuario)
+                                    .addOnSuccessListener(documentReference -> Log.d("TAG", "Documento añadito correctamente"))
+                                    .addOnFailureListener(e -> Log.w("TAG", "Error añadiendo el documento", e));
 
                             IrAHome();
                         } else {

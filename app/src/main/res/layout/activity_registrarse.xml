@@ -14,6 +14,16 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-64dp" />
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="367dp"
+        android:layout_height="419dp"
+        android:layout_marginBottom="92dp"
+        android:background="@drawable/rdborder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/btnRegistrarse"
         android:layout_width="257dp"
@@ -21,7 +31,7 @@
         android:layout_marginBottom="112dp"
         android:backgroundTint="#1E5C4F"
         android:text="Registrarse"
-        android:textSize="29sp"
+        android:textSize="17sp"
         android:translationZ="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +43,7 @@
         android:layout_width="163dp"
         android:layout_height="61dp"
         android:autofillHints="emailAddress"
-        android:background="@drawable/rdborderbutton"
+        android:background="@drawable/rdborder_edittext"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/nombre"
@@ -43,15 +53,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintTop_toTopOf="@+id/include" />
 
     <EditText
         android:id="@+id/etApellido"
         android:layout_width="163dp"
         android:layout_height="61dp"
         android:autofillHints="emailAddress"
-        android:background="@drawable/rdborderbutton"
+        android:background="@drawable/rdborder_edittext"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/apellido"
@@ -61,8 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.862"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include"
-        app:layout_constraintVertical_bias="0.466" />
+        app:layout_constraintTop_toTopOf="@+id/include" />
 
     <EditText
         android:id="@+id/etCorreoRegistro"
@@ -70,7 +78,7 @@
         android:layout_height="62dp"
         android:layout_marginBottom="136dp"
         android:autofillHints="emailAddress"
-        android:background="@drawable/rdborderbutton"
+        android:background="@drawable/rdborder_edittext"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/correo"
@@ -89,7 +97,7 @@
         android:layout_height="62dp"
         android:layout_marginBottom="32dp"
         android:autofillHints="emailAddress"
-        android:background="@drawable/rdborderbutton"
+        android:background="@drawable/rdborder_edittext"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/password"
@@ -98,8 +106,6 @@
         app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

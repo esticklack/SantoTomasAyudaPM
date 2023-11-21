@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class AuthActivity extends AppCompatActivity {
 
@@ -98,5 +99,14 @@ public class AuthActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //No deja al usuario volver hacia atrás
+    }
+
+    public void onStart() {
+        super.onStart();
+        // Si el usuario accedió con anterioridad, no sale hasta que cierre sesión.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            irAInterfaz();
+        }
     }
 }

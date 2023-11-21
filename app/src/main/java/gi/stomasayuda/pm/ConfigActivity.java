@@ -83,18 +83,21 @@ public class ConfigActivity extends AppCompatActivity {
 
 
         DocumentReference docRef = db.collection("usuarios").document(user.getUid());
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if (documentSnapshot.exists()) {
-                    String foto = documentSnapshot.getString("foto");
-                    Glide.with(ConfigActivity.this)
-                            .load(foto)
-                            .into(imgProfile);
-                } else {
-                    // El documento no existe o no tiene datos
-                    // Manejar el error
+        docRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                String foto = documentSnapshot.getString("foto");
+
+                //aqui empieza el if si la foto es nula
+                if(foto != ""){
+                Glide.with(ConfigActivity.this)
+                        .load(foto)
+                        .into(imgProfile);
                 }
+                //aqui termina el if
+
+            } else {
+                Toast.makeText(this, "No se ha podido cargar la imagen",
+                    Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(e -> {
             // No se pudo obtener el documento del usuario

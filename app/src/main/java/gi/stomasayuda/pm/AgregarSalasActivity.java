@@ -1,5 +1,6 @@
 package gi.stomasayuda.pm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -30,6 +31,7 @@ public class AgregarSalasActivity extends AppCompatActivity {
     TextView btnAgregar;
     TextView btnEliminar;
 
+    TextView btnListaReservas;
     TextView btnMantenimiento;
 
     @Override
@@ -45,6 +47,9 @@ public class AgregarSalasActivity extends AppCompatActivity {
 
         btnMantenimiento = findViewById(R.id.btnMantinimiento);
         btnMantenimiento.setOnClickListener(view -> mantenimientoSala());
+
+        btnListaReservas = findViewById(R.id.btnListaReservas);
+        btnListaReservas.setOnClickListener(view -> irAListaReservas());
     }
 
 
@@ -171,4 +176,11 @@ public class AgregarSalasActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    private void irAListaReservas(){
+        Intent intent = new Intent(AgregarSalasActivity.this, ListaReservasAdminActivity.class);
+        startActivity(intent);
+    }
+
+
 }

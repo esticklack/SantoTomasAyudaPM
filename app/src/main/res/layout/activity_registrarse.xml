@@ -32,6 +32,7 @@
         android:backgroundTint="#1E5C4F"
         android:text="Registrarse"
         android:textSize="17sp"
+        android:textColor="@color/white"
         android:translationZ="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

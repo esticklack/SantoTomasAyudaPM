@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
     android:background="@drawable/fondo"
-    >
+  >
 
     <View
         android:id="@+id/view"
@@ -32,7 +32,9 @@
         app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.099" />
+        app:layout_constraintVertical_bias="0.099"
+        android:textColor="@color/black" />
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -53,6 +55,7 @@
         android:background="@drawable/rdborderbutton"
         android:gravity="center"
         android:text="Seleccione una opcion"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnCancelarReserva"
@@ -67,6 +70,9 @@
         android:layout_width="264dp"
         android:layout_height="57dp"
         android:layout_marginBottom="220dp"
+        android:textSize="25sp"
+        android:text="Agendar sala"
+        android:textColor="@color/white"
         android:backgroundTint="@color/verdeOscuro"
         android:text="Cancelar reserva"
         android:textSize="17sp"
@@ -93,6 +99,9 @@
         android:layout_width="264dp"
         android:layout_height="57dp"
         android:layout_marginBottom="136dp"
+        android:textSize="25sp"
+        android:text="Buscar aula"
+        android:textColor="@color/white"
         android:backgroundTint="@color/verdeOscuro"
         android:text="Buscar aula"
         android:textSize="17sp"

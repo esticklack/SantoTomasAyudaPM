@@ -79,10 +79,11 @@
 
     <Button
         android:id="@+id/btnVerImgSala102"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="259dp"
+        android:layout_height="53dp"
         android:backgroundTint="@color/verdeOscuro"
         android:text="Ver imagen"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/lblDispA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,8 +93,8 @@
 
     <Button
         android:id="@+id/btnRealizarReserva102"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="259dp"
+        android:layout_height="53dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="@color/verdeOscuro"
         android:text="Realizar Reserva"

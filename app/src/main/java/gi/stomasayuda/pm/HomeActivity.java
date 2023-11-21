@@ -91,8 +91,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        finish();
-        System.exit(0);
+        finishAffinity();
     }
 
 }

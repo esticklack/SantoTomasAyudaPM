@@ -19,6 +19,8 @@ public class HomeActivity extends AppCompatActivity {
 
     Button btnBuscarAula;
     Button btnAgendarSala;
+
+    Button btnCancelarReserva;
     ImageView btnConfiguration;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -31,13 +33,15 @@ public class HomeActivity extends AppCompatActivity {
         btnBuscarAula = findViewById(R.id.btnBuscarAula);
         btnAgendarSala = findViewById(R.id.btnAgendarSala);
         btnConfiguration = findViewById(R.id.imgConfiguration);
-
+        btnCancelarReserva = findViewById(R.id.btnCancelarReserva);
         btnConfiguration.setOnClickListener(view -> irAConfiguracion());
         btnAgendarSala = findViewById(R.id.btnAgendarSala);
 
         btnBuscarAula.setOnClickListener(view -> irABuscarAula());
 
         btnAgendarSala.setOnClickListener(view -> irAgendarSala());
+
+        btnCancelarReserva.setOnClickListener(view -> irACancelarReserva());
 
 
         if (user != null) {
@@ -87,6 +91,11 @@ public class HomeActivity extends AppCompatActivity {
 
     public void irAConfiguracion() {
         Intent I = new Intent(HomeActivity.this, ConfigActivity.class);
+        startActivity(I);
+    }
+
+    private void irACancelarReserva(){
+        Intent I = new Intent(HomeActivity.this, ListaReservasPersonalActivity.class);
         startActivity(I);
     }
 

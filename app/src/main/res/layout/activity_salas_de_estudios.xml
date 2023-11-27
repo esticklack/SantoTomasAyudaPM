@@ -12,6 +12,7 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-61dp" />
 
+
     <TextView
         android:id="@+id/txtPrueba"
         android:layout_width="313dp"
@@ -46,15 +47,14 @@
         tools:ignore="HardcodedText,TextSizeCheck" />
 
     <ListView
-        android:id="@+id/ListaSalas"
+        android:id="@+id/lvSalas"
         android:layout_width="349dp"
         android:layout_height="172dp"
-        android:background="@drawable/rdborder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPrueba2"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.235" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

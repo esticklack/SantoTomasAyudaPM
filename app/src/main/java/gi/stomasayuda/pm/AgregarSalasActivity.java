@@ -64,15 +64,19 @@ public class AgregarSalasActivity extends AppCompatActivity {
         final EditText inputCapacidad = new EditText(this);
         inputCapacidad.setHint("Capacidad de la sala");
         inputCapacidad.setInputType(InputType.TYPE_CLASS_NUMBER);
+        final EditText inputUbicacion = new EditText(this);
+        inputUbicacion.setHint("Ubicación:");
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.addView(inputNombre);
         layout.addView(inputCapacidad);
+        layout.addView(inputUbicacion);
         builder.setView(layout);
 
         builder.setPositiveButton("Agregar", (dialog, which) -> {
             String nombre = inputNombre.getText().toString();
             String capacidad = inputCapacidad.getText().toString();
+            String ubicacion = inputUbicacion.getText().toString();
 
             // Crear el mapa de horarios con todos los valores en true
             Map<String, Boolean> horarios = new HashMap<>();
@@ -84,7 +88,9 @@ public class AgregarSalasActivity extends AppCompatActivity {
             Map<String, Object> sala = new HashMap<>();
             sala.put("nombre", nombre);
             sala.put("capacidad", capacidad);
+            sala.put("ubicacion", ubicacion);
             sala.put("horarios", horarios);
+            sala.put("mantenimiento", false);
 
             db = FirebaseFirestore.getInstance();
             db.collection("salas").add(sala)

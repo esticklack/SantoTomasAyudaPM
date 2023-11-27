@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,8 +14,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class AuthActivity extends AppCompatActivity {
 
@@ -25,6 +36,10 @@ public class AuthActivity extends AppCompatActivity {
     Button btnIniciarSesion;
 
     TextView btnRegistrarse;
+    private FirebaseMessaging messaging;
+    private FirebaseFirestore db;
+
+
 
     int intentos = 0;
 
@@ -34,6 +49,8 @@ public class AuthActivity extends AppCompatActivity {
         setContentView(R.layout.pantalla_inicio_sesion);
 
         mAuth = FirebaseAuth.getInstance();
+        messaging = FirebaseMessaging.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         EditTextCorreo = findViewById(R.id.correoInicioSesion);
         EditTextCorreo.setOnFocusChangeListener((v, hasFocus) -> {
@@ -63,6 +80,30 @@ public class AuthActivity extends AppCompatActivity {
 
             mAuth.signInWithEmailAndPassword(correo, password).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
+                            messaging.getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+                                @Override
+                                public void onComplete(@NonNull Task<String> task) {
+                                    if (!task.isSuccessful()) {
+                                        Log.w("TAG", "Error obteniendo el token de FCM", task.getException());
+                                        return;
+                                    }
+                                    String token = task.getResult();
+                                    CollectionReference salasRef = db.collection("usuarios");
+                                    Query query = salasRef.whereEqualTo("correo", correo);
+                                    query.get().addOnCompleteListener(task1 -> {
+                                       if(task1.isSuccessful()){
+                                           for (QueryDocumentSnapshot document : task1.getResult()){
+                                               document.getReference().update("token", token).addOnCompleteListener(task2 -> {
+                                                   Log.w("TAG", "Token obtenido correctamente", task2.getException());
+                                               });
+                                           }
+                                       } else {
+                                           Log.w("TAG", "Error actualizando el documento");
+                                       }
+                                    });
+
+                                }
+                            });
                     irAInterfaz();
                 } else {
                     intentos++;

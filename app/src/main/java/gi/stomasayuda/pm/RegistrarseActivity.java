@@ -59,6 +59,7 @@ public class RegistrarseActivity extends AppCompatActivity {
                             usuario.put("admin", false);
                             usuario.put("foto", "");
                             usuario.put("numero", "");
+                            usuario.put("token", "");
 
 
                             String uid = mAuth.getUid();

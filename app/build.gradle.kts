@@ -34,6 +34,12 @@ android {
 
 
 dependencies {
+    val fragment_version = "1.5.5"
+
+    // Java language implementation
+    implementation("androidx.fragment:fragment:$fragment_version")
+    // Kotlin
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.google.firebase:firebase-firestore")

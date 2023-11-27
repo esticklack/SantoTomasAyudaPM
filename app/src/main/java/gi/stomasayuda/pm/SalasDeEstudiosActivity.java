@@ -2,30 +2,39 @@ package gi.stomasayuda.pm;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SalasDeEstudiosActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
-    FirebaseFirestore db;
-    TextView txtPrueba;
+    private FirebaseFirestore db;
+    private TextView txtPrueba;
 
-    ListView listaDeSalas;
+    private ListView lvSalas;
 
+    private List<Sala> listaSalas;
+
+    private  SalaAdapter adapter;
     Calendar obtenerHora = Calendar.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -34,9 +43,11 @@ public class SalasDeEstudiosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salas_de_estudios);
 
+
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        listaDeSalas = findViewById(R.id.ListaSalas);
+
+
 
         int hora = obtenerHora.get(Calendar.HOUR_OF_DAY);
         int minuto = obtenerHora.get(Calendar.MINUTE);
@@ -46,29 +57,56 @@ public class SalasDeEstudiosActivity extends AppCompatActivity {
         txtPrueba = findViewById(R.id.txtPrueba2);
         txtPrueba.setText("Hora Actual: " + horaFormateada + ":" + minutoFormateado);
 
-        ArrayList<String> listaSalas = new ArrayList<>();
-
-        db.collection("salas")
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            // Agrega el nombre de la sala al ArrayList
-                            listaSalas.add(document.getString("nombre"));
-                        }
-                        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.row_layout, R.id.textItem, listaSalas);
-                        listaDeSalas.setAdapter(adapter);
-                    } else {
+        // Lista Salas
+        listaSalas = new ArrayList<>();
+        lvSalas = (ListView) findViewById(R.id.lvSalas);
+        adapter = new SalaAdapter(SalasDeEstudiosActivity.this, listaSalas);
+        lvSalas.setAdapter(adapter);
 
 
-                    }
-                });
+        db.collection("salas").get().addOnCompleteListener(task -> {
+            //Verificar si la tarea fue exitosa
+            if (task.isSuccessful()) {
+                //Iterar sobre los documentos obtenidos
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    //Obtener los campos de cada documento
+                    String nombre = document.getString("nombre");
+                    String capacidad = document.getString("capacidad");
+                    Boolean mantenimiento = document.getBoolean("mantenimiento");
+                    String ubicacion = document.getString("ubicacion");
+                    //Crear un objeto reserva con los valores de los campos
+                    Sala sala = new Sala(nombre, capacidad, mantenimiento, ubicacion);
 
-        listaDeSalas.setOnItemClickListener((parent, view, position, id) -> {
-            Intent intent = new Intent(getBaseContext(), InfoSala.class);
-            startActivity(intent);
+                    //Añadir el objeto reserva a la lista de reservas
+                    listaSalas.add(sala);
+                }
+                //Notificar al adaptador que los datos han cambiado
+                adapter.notifyDataSetChanged();
+            } else {
+                //Mostrar un mensaje de error
+                Toast.makeText(SalasDeEstudiosActivity.this, "Error al obtener las reservas: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
 
+
+
+        lvSalas.setOnItemClickListener((parent, view, position, id) -> {
+            // Obtener el objeto Reserva que corresponde al elemento seleccionado
+            Sala sala = listaSalas.get(position);
+            // Obtener los datos de la reserva
+            String nombre = sala.getNombre();
+            String capacidad = sala.getCapacidad();
+            Boolean mantenimiento = sala.getMantenimiento();
+            String ubicacion = sala.getUbicacion();
+
+            Intent parametros = new Intent(SalasDeEstudiosActivity.this, InfoSala.class);
+            parametros.putExtra("nombre", nombre);
+            parametros.putExtra("capacidad", capacidad);
+            parametros.putExtra("mantenimiento", mantenimiento);
+            parametros.putExtra("ubicacion", ubicacion);
+            startActivity(parametros);
+
+        });
 
 
     }

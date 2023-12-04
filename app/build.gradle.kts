@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.Packaging
+
 plugins {
     id("com.android.application")
     id("com.google.gms.google-services")
@@ -10,7 +12,7 @@ android {
     defaultConfig {
         applicationId = "gi.stomasayuda.pm"
         minSdk = 27
-        targetSdk = 33
+        targetSdk = 31
         versionCode = 1
         versionName = "1.0"
 
@@ -27,6 +29,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    fun Packaging.() {
+        resources {
+            excludes += listOf("META-INF/INDEX.LIST", "META-INF/io.netty.versions.properties")
+        }
+    }
     buildFeatures {
         viewBinding = true
     }
@@ -40,6 +48,8 @@ dependencies {
     implementation("androidx.fragment:fragment:$fragment_version")
     // Kotlin
     implementation("androidx.fragment:fragment-ktx:$fragment_version")
+
+    implementation ("com.onesignal:OneSignal:[5.0.0, 5.99.99]")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.google.firebase:firebase-firestore")
@@ -59,6 +69,14 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    implementation("com.android.support:support-v4:28.0.0")
+    implementation("com.android.support:localbroadcastmanager:28.0.0")
+
+    implementation("org.android.paho:org.eclipse.paho.client.mqttv3:1.1.0")
+    implementation("org.eclipse.paho:org.eclipse.paho.android.service:1.1.1"){
+        exclude(group = "com.android.support")
+        exclude(module = "appcompat-v7")
+        exclude(module = "support-v4")
+    }
 }
-
-

@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
     android:background="@drawable/fondo"
-  >
+    tools:context=".HomeActivity">
 
     <View
         android:id="@+id/view"
-        android:layout_width="349dp"
-        android:layout_height="356dp"
+        android:layout_width="335dp"
+        android:layout_height="379dp"
         android:layout_marginBottom="84dp"
         android:background="@drawable/rdborder"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,14 +25,14 @@
         android:background="@drawable/rdborderbutton"
         android:gravity="center"
         android:text="Bienvenido @Usuario"
+        android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.099"
-        android:textColor="@color/black" />
+        app:layout_constraintVertical_bias="0.099" />
 
 
     <ImageView
@@ -98,9 +97,9 @@
         android:layout_width="264dp"
         android:layout_height="57dp"
         android:layout_marginBottom="136dp"
-        android:textColor="@color/white"
         android:backgroundTint="@color/verdeOscuro"
         android:text="Buscar aula"
+        android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,5 +121,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/conf"
         tools:ignore="TouchTargetSizeCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

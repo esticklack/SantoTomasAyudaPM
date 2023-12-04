@@ -73,7 +73,7 @@ dependencies {
     implementation("com.android.support:support-v4:28.0.0")
     implementation("com.android.support:localbroadcastmanager:28.0.0")
 
-    implementation("org.android.paho:org.eclipse.paho.client.mqttv3:1.1.0")
+    implementation("org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0")
     implementation("org.eclipse.paho:org.eclipse.paho.android.service:1.1.1"){
         exclude(group = "com.android.support")
         exclude(module = "appcompat-v7")

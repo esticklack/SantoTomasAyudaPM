@@ -18,11 +18,15 @@
         android:id="@+id/view"
         android:layout_width="367dp"
         android:layout_height="419dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="406dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="89dp"
         android:background="@drawable/rdborder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnRegistrarse"
@@ -31,8 +35,8 @@
         android:layout_marginBottom="112dp"
         android:backgroundTint="#1E5C4F"
         android:text="Registrarse"
-        android:textSize="17sp"
         android:textColor="@color/white"
+        android:textSize="17sp"
         android:translationZ="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,6 +47,8 @@
         android:id="@+id/etNombre"
         android:layout_width="163dp"
         android:layout_height="61dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="144dp"
         android:autofillHints="emailAddress"
         android:background="@drawable/rdborder_edittext"
         android:ems="10"
@@ -50,16 +56,16 @@
         android:hint="@string/nombre"
         android:inputType="text"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintBottom_toTopOf="@+id/etPasswordRegistro"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include" />
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.935" />
 
     <EditText
         android:id="@+id/etApellido"
         android:layout_width="163dp"
         android:layout_height="61dp"
+        android:layout_marginBottom="144dp"
         android:autofillHints="emailAddress"
         android:background="@drawable/rdborder_edittext"
         android:ems="10"
@@ -67,11 +73,12 @@
         android:hint="@string/apellido"
         android:inputType="text"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/etPasswordRegistro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.862"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include" />
+        app:layout_constraintHorizontal_bias="0.358"
+        app:layout_constraintStart_toEndOf="@+id/etNombre"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="0.935" />
 
     <EditText
         android:id="@+id/etCorreoRegistro"
@@ -107,6 +114,20 @@
         app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="393dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="836dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

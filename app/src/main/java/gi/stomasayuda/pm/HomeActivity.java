@@ -11,8 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -43,6 +46,28 @@ public class HomeActivity extends AppCompatActivity {
 
         btnCancelarReserva.setOnClickListener(view -> irACancelarReserva());
 
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.w("TAG", "Fetching FCM registration token failed", task.getException());
+                        return;
+                    }
+
+                    // Get new FCM registration token
+                    String token = task.getResult();
+                    String correo = user.getEmail();
+                    CollectionReference usuariosRef = db.collection("usuarios");
+                    Query query = usuariosRef.whereEqualTo("correo", correo);
+                    query.get().addOnCompleteListener(task1 -> {
+                        if(task1.isSuccessful()){
+                            for (QueryDocumentSnapshot document : task1.getResult()){
+                                document.getReference().update("token", token).addOnCompleteListener(task2 -> Log.w("TAG", "Token obtenido correctamente", task2.getException()));
+                            }
+                        } else {
+                            Log.w("TAG", "Error actualizando el documento");
+                        }
+                    });
+                });
 
         if (user != null) {
             String email = user.getEmail();

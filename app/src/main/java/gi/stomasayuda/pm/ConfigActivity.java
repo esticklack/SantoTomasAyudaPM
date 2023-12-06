@@ -36,6 +36,7 @@ public class ConfigActivity extends AppCompatActivity {
     TextView txtAdmin;
     Button btnLogout;
 
+    Button mqttNacho;
     Button btnAdministrar;
     Button btnMQTT;
     FirebaseFirestore db;
@@ -70,9 +71,10 @@ public class ConfigActivity extends AppCompatActivity {
         btnAdministrar = findViewById(R.id.btnAdministrarSalas);
         imgProfile = findViewById(R.id.imgProfile);
         btnMQTT = findViewById(R.id.btnMQTTGeorge);
+        mqttNacho = findViewById(R.id.btnMQTTNacho);
 
         btnMQTT.setOnClickListener(view -> MQTT());
-
+        mqttNacho.setOnClickListener(view -> MQTTNACHO());
         btnAdministrar.setOnClickListener(view -> administrarSalas());
 
         btnLogout.setOnClickListener(view -> cerrarSesion());
@@ -157,6 +159,11 @@ public class ConfigActivity extends AppCompatActivity {
 
     private void MQTT(){
         Intent intent = new Intent(ConfigActivity.this, Mqtt_activity.class);
+        startActivity(intent);
+    }
+
+    private void MQTTNACHO(){
+        Intent intent = new Intent(ConfigActivity.this, MqttActivity_Nacho.class);
         startActivity(intent);
     }
     private void uploadImage(){

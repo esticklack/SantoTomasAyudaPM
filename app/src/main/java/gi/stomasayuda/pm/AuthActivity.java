@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,13 +15,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class AuthActivity extends AppCompatActivity {
 
     EditText EditTextCorreo;
     EditText EditTextPassword;
     FirebaseAuth mAuth;
-
+    FirebaseFirestore db;
+    FirebaseUser user;
     Button btnIniciarSesion;
 
     TextView btnRegistrarse;
@@ -32,6 +38,8 @@ public class AuthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla_inicio_sesion);
 
+        db = FirebaseFirestore.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         mAuth = FirebaseAuth.getInstance();
 
         EditTextCorreo = findViewById(R.id.correoInicioSesion);
@@ -93,6 +101,21 @@ public class AuthActivity extends AppCompatActivity {
     } //Fin oncreate
 
     private void irAInterfaz() {
+        String correo = EditTextCorreo.getText().toString();
+
+        CollectionReference usuariosRef = db.collection("usuarios");
+
+        usuariosRef.whereEqualTo("correo", correo).get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            String nombre = document.getString("nombre");
+                        }
+                    } else {
+                        Log.d("TAG", "Error obteniendo documentos: ", task.getException());
+                    }
+                });
+
         Intent i = new Intent(AuthActivity.this, HomeActivity.class);
         i.putExtra("correo", EditTextCorreo.getText().toString());
         startActivity(i);

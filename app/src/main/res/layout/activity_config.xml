@@ -86,20 +86,37 @@
         app:layout_constraintVertical_bias="0.766" />
 
     <Button
-        android:id="@+id/btnMQTT"
+        android:id="@+id/btnMQTTGeorge"
         android:layout_width="259dp"
         android:layout_height="53dp"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="777dp"
+        android:layout_marginTop="411dp"
         android:layout_marginEnd="76dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="382dp"
         android:backgroundTint="@color/verdeOscuro"
-        android:text="MQTT Test"
+        android:text="MQTT George"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnMQTTNacho"
+        android:layout_width="259dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="309dp"
+        android:backgroundTint="@color/verdeOscuro"
+        android:text="MQTT Nacho"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMQTTGeorge" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

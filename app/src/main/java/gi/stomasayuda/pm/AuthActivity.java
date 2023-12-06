@@ -58,12 +58,14 @@ public class AuthActivity extends AppCompatActivity {
         btnIniciarSesion.setOnClickListener(view -> {
             String correo = EditTextCorreo.getText().toString();
             String password = EditTextPassword.getText().toString();
+            if (correo.isEmpty() || password.isEmpty()){
+                Toast.makeText(getBaseContext(), "Debe ingresar correo y contraseña", Toast.LENGTH_SHORT).show();
+            } else {
 
-
-            mAuth.signInWithEmailAndPassword(correo, password).addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
+                mAuth.signInWithEmailAndPassword(correo, password).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
                     irAInterfaz();
-                } else {
+                        } else {
                     intentos++;
                     if (intentos >= 5) {
                         btnIniciarSesion.setEnabled(false);
@@ -72,12 +74,13 @@ public class AuthActivity extends AppCompatActivity {
                         handler.postDelayed(() -> {
                             btnIniciarSesion.setEnabled(true);
                             intentos = 0;
-                        }, 5000); // Estos serian en milisegundos
-                    } else
+                             }, 5000); // Estos serian en milisegundos
+                        } else
                         Toast.makeText(getApplicationContext(), "Email o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                }
-            });
+                    }
+                });
 
+            }
         });
 
         btnRegistrarse = findViewById(R.id.RegistrarseButton);

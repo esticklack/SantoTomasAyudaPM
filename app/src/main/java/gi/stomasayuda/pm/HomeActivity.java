@@ -1,13 +1,20 @@
 package gi.stomasayuda.pm;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,7 +26,31 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 
 public class HomeActivity extends AppCompatActivity {
-
+    private final ActivityResultLauncher<String> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    Toast.makeText(getBaseContext(), "Ahora recibiras notificaciones", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getBaseContext(), "No podrás recibir notificaciones", Toast.LENGTH_SHORT).show();
+                }
+            });
+    private void askNotificationPermission() {
+        // This is only necessary for API level >= 33 (TIRAMISU)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) ==
+                    PackageManager.PERMISSION_GRANTED) {
+                // FCM SDK (and your app) can post notifications.
+            } else if (shouldShowRequestPermissionRationale(android.Manifest.permission.POST_NOTIFICATIONS)) {
+                // TODO: display an educational UI explaining to the user the features that will be enabled
+                //       by them granting the POST_NOTIFICATION permission. This UI should provide the user
+                //       "OK" and "No thanks" buttons. If the user selects "OK," directly request the permission.
+                //       If the user selects "No thanks," allow the user to continue without notifications.
+            } else {
+                // Directly ask for the permission
+                requestPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS);
+            }
+        }
+    }
     Button btnBuscarAula;
     Button btnAgendarSala;
 
@@ -28,10 +59,14 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+    private static final int RC_NOTIFICATION = 99;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        askNotificationPermission();
 
         btnBuscarAula = findViewById(R.id.btnBuscarAula);
         btnAgendarSala = findViewById(R.id.btnAgendarSala);
@@ -45,6 +80,7 @@ public class HomeActivity extends AppCompatActivity {
         btnAgendarSala.setOnClickListener(view -> irAgendarSala());
 
         btnCancelarReserva.setOnClickListener(view -> irACancelarReserva());
+
 
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(task -> {
@@ -123,6 +159,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent I = new Intent(HomeActivity.this, ListaReservasPersonalActivity.class);
         startActivity(I);
     }
+
 
     public void onBackPressed() {
         finishAffinity();

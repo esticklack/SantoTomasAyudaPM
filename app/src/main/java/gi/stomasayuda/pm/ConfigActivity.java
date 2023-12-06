@@ -69,7 +69,7 @@ public class ConfigActivity extends AppCompatActivity {
         txtAdmin = findViewById(R.id.txtAdmin);
         btnAdministrar = findViewById(R.id.btnAdministrarSalas);
         imgProfile = findViewById(R.id.imgProfile);
-        btnMQTT = findViewById(R.id.btnMQTT);
+        btnMQTT = findViewById(R.id.btnMQTTGeorge);
 
         btnMQTT.setOnClickListener(view -> MQTT());
 

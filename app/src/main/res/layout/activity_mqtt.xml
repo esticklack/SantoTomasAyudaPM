@@ -15,6 +15,24 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editTextTopic"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editTextMessage"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -22,26 +40,26 @@
         android:layout_height="wrap_content">
 
     <Button
-        android:id="@+id/btnON"
-        android:text="ENCENDER"
+        android:id="@+id/buttonSubscribe"
+        android:text="SUSCRIBIRSE"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/btnOFF"
-            android:text="APAGAR"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/buttonPublish"
+        android:text="PUBLICAR"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtInfo"
+        android:id="@+id/textViewMessage"
         android:paddingVertical="50dp"
         android:gravity="center"
-        android:text="ESTADO DEL LED"
+        android:text="ESTADO"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />

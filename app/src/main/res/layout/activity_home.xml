@@ -83,6 +83,7 @@
         android:layout_height="57dp"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/verdeOscuro"
+        android:textColor="@color/white"
         android:text="Cancelar Reserva"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/btnBuscarAula"

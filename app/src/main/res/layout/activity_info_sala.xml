@@ -19,7 +19,7 @@
         android:layout_height="38dp"
         android:layout_marginStart="11dp"
         android:layout_marginTop="287dp"
-        android:gravity="center"
+        android:gravity="center|end"
         android:text="INFORMACIÓN:"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -35,7 +35,7 @@
         android:layout_height="38dp"
         android:layout_marginTop="287dp"
         android:layout_marginEnd="16dp"
-        android:gravity="center|start"
+        android:gravity="center"
         android:text="SALA"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -48,7 +48,7 @@
         android:layout_width="192dp"
         android:layout_height="38dp"
         android:layout_marginStart="11dp"
-        android:gravity="center"
+        android:gravity="center|end"
         android:text="CAPACIDAD:"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -64,7 +64,7 @@
         android:layout_width="192dp"
         android:layout_height="38dp"
         android:layout_marginEnd="16dp"
-        android:gravity="center|start"
+        android:gravity="center"
         android:text="CAPACIDAD"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -100,7 +100,6 @@
         android:text="UBICACION"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnVerImgSala102"
         app:layout_constraintEnd_toEndOf="@+id/include2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/include2"
@@ -126,18 +125,7 @@
         app:layout_constraintTop_toTopOf="@+id/include2"
         tools:ignore="HardcodedText" />
 
-    <Button
-        android:id="@+id/btnVerImgSala102"
-        android:layout_width="259dp"
-        android:layout_height="53dp"
-        android:backgroundTint="@color/verdeOscuro"
-        android:text="Ver imagen"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/lblDispA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.048"
-        tools:ignore="HardcodedText" />
+
 
     <Button
         android:id="@+id/btnReservar"
@@ -145,6 +133,7 @@
         android:layout_height="53dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="@color/verdeOscuro"
+        android:textColor="@color/white"
         android:text="Realizar Reserva"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -159,7 +148,6 @@
         app:layout_constraintBottom_toTopOf="@+id/lblDispA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnVerImgSala102"
         app:layout_constraintVertical_bias="0.939"
         />
 

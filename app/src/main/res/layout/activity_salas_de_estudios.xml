@@ -50,6 +50,7 @@
         android:id="@+id/lvSalas"
         android:layout_width="349dp"
         android:layout_height="172dp"
+        android:dividerHeight="5sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
